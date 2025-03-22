@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drum</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="background-color: darkgray;">
+    
+    <div class="main-container">
+        
+        <div class="d1" id="a1" data-audio="mixkit-sci-fi-reject-notification-896.wav"></div>
+        <div class="d2" id="a1" data-audio="mixkit-dry-pop-up-notification-alert-2356.wav"></div>
+        <div class="d3" id="a1" data-audio="mixkit-positive-notification-951.wav"></div>
+        <div class="d4" id="a1" data-audio="mixkit-sci-fi-confirmation-914.wav"></div>
+        <div class="d5" id="a1" data-audio="mixkit-sci-fi-click-900.wav"></div>
+        <div class="d6" id="a1" data-audio="notification-22-270130.mp3"></div>
+
+        <audio id="audioPlayer"></audio>
+        <script>
+            const audioPlayer = document.getElementById("audioPlayer");
+    
+            document.querySelectorAll("#a1").forEach(box => {
+                box.addEventListener("click", () => {
+                    const audioSrc = box.getAttribute("data-audio");
+                    if (audioPlayer.src.includes(audioSrc)) {
+                        if (audioPlayer.paused) {
+                            audioPlayer.play();
+                        } else {
+                            audioPlayer.pause(); 
+                        }
+                    } else {
+                        audioPlayer.src = audioSrc;
+                        audioPlayer.play();
+                    }
+                });
+            });
+        </script>
+    
+        
+    </div>
+    
+</body>
+</html>
